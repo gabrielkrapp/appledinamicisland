@@ -1,0 +1,205 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #fff;
+}
+
+.box {
+    position: relative;
+    width: 300px;
+    height: 600px;
+    background: #666;
+    border-radius: 50px;
+}
+
+.box::before {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    background-color: #000;
+    border-radius: 48px;
+}
+
+.inner {
+    position: absolute;
+    inset: 3px;
+    background: url(imagens/wallpaper.webp);
+    background-size: cover;
+    background-position: center;
+    border-radius: 48px;
+    border: 10px solid #000;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.box:hover .inner {
+    opacity: 1;
+}
+
+.btn {
+    position: absolute;
+    top: 110px;
+    left: -2px;
+    width: 3px;
+    height: 26px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    background: radial=radial-gradient(#ccc,#666,#222);
+    z-index: 10;
+}
+
+.btn.btn2 {
+    top: 160px;
+    height: 40px;
+}
+
+.btn.btn3 {
+    top: 220px;
+    height: 40px;
+}
+
+.rightsidebtn {
+    position: absolute;
+    top: 170px;
+    right: -2px;
+    width: 3px;
+    height: 70px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background: radial=radial-gradient(#ccc,#666,#222);
+    z-index: 10;
+}
+
+.ilha {
+    position: absolute;
+    width: 90px;
+    height: 25px;
+    margin-top: 6px;
+    background: #000;
+    border-radius: 20px;
+    transition: 0.5s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ilha:hover {
+    width: 160px;
+    height: 30px;
+}
+
+.ilha.active {
+    width: 250px;
+    height: 60px;
+    border-radius: 50px;
+}
+
+.conteudo {
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px;
+    line-height: 25px;
+}
+
+.conteudo p {
+    color: #fff;
+    font-size: 0.6em;
+    cursor: default;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.action {
+    position: relative;
+    color: #fff;
+    top: 5px;
+    display: flex;
+    gap: 12px;
+    transition: 0.5s;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.ilha.active .action {
+    top: 12px;
+}
+
+ion-icon.red {
+    color: #fd443b;
+    transform: rotade(135deg);
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+ion-icon.green {
+    color: #31d059;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.ilha:hover p, .ilha.active p, .ilha:hover .action, .ilha:active .action {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0.25s;
+}
+
+.ilha.active ion-icon.red {
+    background: #fd443b;
+    color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 8px #fd443b;
+    margin-right: 12px;
+}
+
+.ilha.active ion-icon.green {
+    background: #31d059;
+    color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 8px #31d059;
+    margin-right: 8px;
+}
+
+.detalhes {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.detalhes .imgbox {
+    position: relative;
+    width: 0;
+    height: 0;
+    background-color: #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.ilha.active .detalhes .imgbox {
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+}
+
+.detalhes .imgbox img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
